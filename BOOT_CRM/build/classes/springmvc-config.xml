@@ -15,9 +15,8 @@
     http://www.springframework.org/schema/aop/spring-aop-4.3.xsd 
     http://www.springframework.org/schema/tx 
     http://www.springframework.org/schema/tx/spring-tx-4.3.xsd">
-    <!-- 加载属性文件 -->
-    <context:property-placeholder 
-               location="classpath:resource.properties" />
+    <!-- 加载属性文件 --> 
+    <context:property-placeholder location="classpath:resource.properties" />
     <!-- 配置扫描器 -->
     <context:component-scan base-package="cn.edu.cqcet.yd1702.team02.core.controller" />
     <!-- 注解驱动：配置处理器映射器和适配器 -->
