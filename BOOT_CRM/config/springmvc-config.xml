@@ -35,12 +35,12 @@
     </bean>	
     
     <!-- 配置拦截器 -->
-<!-- 	<mvc:interceptors>
+	<mvc:interceptors>
     	<mvc:interceptor>
         	<mvc:mapping path="/**" />
         	<bean class="cn.edu.cqcet.yd1702.team02.core.interceptor.LoginInterceptor" />
     	</mvc:interceptor>
-	</mvc:interceptors>	 -->
+	</mvc:interceptors>	
     
     
 </beans>
