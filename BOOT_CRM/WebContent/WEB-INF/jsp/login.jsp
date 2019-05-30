@@ -24,9 +24,20 @@ function check(){
     return true;
 }
 </script>
+<style type="text/css">
+body {
+
+	background: #bdc3c7;  /* fallback for old browsers */
+	background: -webkit-linear-gradient(to right, #2c3e50, #bdc3c7);  /* Chrome 10-25, Safari 5.1-6 */
+	background: linear-gradient(to right, #2c3e50, #bdc3c7); /* W3C, IE 10+/ Edge, Firefox 16+, Chrome 26+, Opera 12+, Safari 7+ */
+
+}
+</style>
 </head>
 <body leftMargin=0 topMargin=0 marginwidth="0" marginheight="0"
-	background="${pageContext.request.contextPath}/images/rightbg.jpg">
+<%-- 	background="${pageContext.request.contextPath}/images/rightbg.jpg"
+ --%>	
+ >
 	<div ALIGN="center">
 		<table border="0" width="1140px" cellspacing="0" cellpadding="0"
 			id="table1">
@@ -36,7 +47,7 @@ function check(){
 			</tr>
 			<tr>
 				<td
-					background="${pageContext.request.contextPath}/images/rights.jpg"
+					<%-- background="${pageContext.request.contextPath}/images/rights.jpg" --%>
 					width="740" height="412"></td>
 				<td class="login_msg" width="400" align="center">
 					<!-- margin:0px auto; 控制当前标签居中 -->
@@ -64,5 +75,12 @@ function check(){
 			</tr>
 		</table>
 	</div>
+	<p class="copyright" style="width: 600px;margin-left: -300px;text-align:center;position:absolute;left: 50%;bottom:30px;" >
+	版权所有&copy;CQCET-移动应用开发1702班-Team02&nbsp;
+	<a bindanchor='1' target="_blank" href="https://github.com/SunRedSoldier/cqcet-yd1702-team02-boot_crm">
+		渝ICP备2333333号
+	</a>
+</p>
+	
 </body>
 </html>
