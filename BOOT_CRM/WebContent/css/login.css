@@ -1,0 +1,74 @@
+body {
+  background-color: rgb(250,250,250);
+  /* 不允许复制 */
+  -moz-user-select: none;  
+	-webkit-user-select: none;  
+	-ms-user-select: none;
+	user-select: none;
+}
+
+.login-div {
+  max-width: 364px;
+  padding: 40px;
+  margin:0 auto;
+  margin-top:20px;
+  background-color:rgb(255,255,255);
+  border:1px solid rgb(230,230,230);
+}
+
+
+
+.form-login .form-login-heading,
+.form-login .checkbox {
+  margin-bottom: 10px;
+}
+.form-login-heading{
+	font-family:华文行楷;
+}
+.form-login-heading span{
+	font-family:华文新魏;
+}
+.form-login .checkbox {
+  font-weight: normal;
+}
+.form-login .form-control {
+	font-size: 14px;
+  position: relative;
+  height: auto;
+  -webkit-box-sizing: border-box;
+     -moz-box-sizing: border-box;
+          box-sizing: border-box;
+  padding: 2px;
+  
+}
+.form-login .form-control:focus::-webkit-input-placeholder {
+	color:transparent;
+}
+.form-login input[type="text"] {
+	margin-top:30px;
+	margin-bottom: 5px;
+	height:38px;
+}
+.form-login input[type="password"] {
+  margin-bottom: 10px;
+  height:38px;
+}
+.btn-login{
+	background-color:rgb(56,151,240);
+	color:white;
+	height:30px;
+	font-size: 14px;
+	font-family:微软雅黑;
+}
+.form-control{
+	background-color:rgb(250,250,250);
+}
+
+.forget-pwd{
+	margin-top:10px;
+}
+.forget-pwd a{ text-decoration:none;}
+.forget-pwd a:visited {text-decoration:none;} 
+.forget-pwd a:hover {color:#ba2636; text-decoration:underline;} 
+.forget-pwd a:active {color:#ba2636;} 
+

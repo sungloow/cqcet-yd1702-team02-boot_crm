@@ -5,12 +5,14 @@
 <head>
 <title>登录</title>
 <meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
-<link href="${pageContext.request.contextPath}/css/style.css"
-	type=text/css rel=stylesheet>
-<link href="${pageContext.request.contextPath}/css/boot-crm.css"
-	type=text/css rel=stylesheet>
-<script src="${pageContext.request.contextPath}/js/jquery-1.11.3.min.js">
-</script>
+<meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1, user-scalable=no">
+<meta name="description" content="">
+<meta name="author" content="">
+	<!-- Bootstrap core CSS -->
+<link href="${pageContext.request.contextPath}/css/bootstrap.min.css" type=text/css rel="stylesheet">	
+
+<link href="${pageContext.request.contextPath}/css/login.css" type=text/css rel=stylesheet>
+<script src="${pageContext.request.contextPath}/js/jquery-1.11.3.min.js"></script>
 <meta content="MSHTML 6.00.2600.0" name=GENERATOR>
 <script>
 // 判断是登录账号和密码是否为空
@@ -24,45 +26,58 @@ function check(){
     return true;
 }
 </script>
+
 </head>
-<body leftMargin=0 topMargin=0 marginwidth="0" marginheight="0"
-	background="${pageContext.request.contextPath}/images/rightbg.jpg">
-	<div ALIGN="center">
-		<table border="0" width="1140px" cellspacing="0" cellpadding="0"
-			id="table1">
-			<tr>
-				<td height="93"></td>
-				<td></td>
-			</tr>
-			<tr>
-				<td
-					background="${pageContext.request.contextPath}/images/rights.jpg"
-					width="740" height="412"></td>
-				<td class="login_msg" width="400" align="center">
-					<!-- margin:0px auto; 控制当前标签居中 -->
-					<fieldset style="width: auto; margin: 0px auto;">
-						<legend>
-							<font style="font-size: 15px" face="宋体"> 欢迎使用BOOT客户管理系统 </font>
-						</legend>
-						<font color="red"> <%-- 提示信息--%> <span id="message">${msg}</span>
+  <body>
+
+    <div class="container login-div">
+
+      <form class="form-login" action="${pageContext.request.contextPath }/login.action" method="post" onsubmit="return check()" >
+        <h2 class="form-login-heading"><span>BOOT</span>客户管理系统</h2>
+		<font color="red"> <!-- 提示信息--> <span id="message" class="message">${msg}</span>
 						</font>
-						<%-- 提交后的位置：/WEB-INF/jsp/customer.jsp--%>
-						<form action="${pageContext.request.contextPath }/login.action"
-							method="post" onsubmit="return check()">
-							&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<br />
-							<br /> 账&nbsp;号：<input id="usercode" type="text" name="usercode" />
-							<br />
-							<br /> 密&nbsp;码：<input id="password" type="password" name="password" /> 
-							<br />
-							<br /> &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
-							<center>
-								<input type="submit" value="登录" />
-							</center>
-						</form>
-					</fieldset>
-				</td>
-			</tr>
-		</table>
+        <label for="usercode"  class="sr-only">请输入用户名</label>
+        <input type="text" id="usercode" name="usercode" class="form-control" placeholder="请输入用户名" autofocus>
+        <label for="password" class="sr-only">请输入密码</label>
+        <input type="password" id="password" name="password" class="form-control" placeholder="请输入密码" >
+        <div class="checkbox">
+          <label>
+            <input type="checkbox" value="remember-me"> 记住密码
+          </label>
+        </div>
+
+        <button class="btn btn-login btn-block" type="submit">登录</button>
+      </form>
+	  <hr/>
+	  <div class="forget-pwd">
+		<a>
+            忘记密码？
+         </a>
+	  </div>
+
+    </div> <!-- /container -->
+
+
+  </body>
+  <footer class="footer ">
+	<div class="container navbar-fixed-bottom">
+      <ul class="list-inline text-center">
+		<li>CQCET&nbsp;-&nbsp;移动应用开发1702班&nbsp;-&nbsp;Team02</li>
+        <li><a href="https://github.com/SunRedSoldier/cqcet-yd1702-team02-boot_crm" target="_blank">github主页</a></li>
+		<li>渝ICP备2333333号</li>
+		<li>&nbsp;&nbsp;</li>
+		<li>&nbsp;&nbsp;</li>
+		<li>&copy;2019</li>
+
+      </ul>
 	</div>
-</body>
+  </footer>
+ <script type="text/javascript">
+	<%-- 防止用户后退网页--%>
+	//window.history.forward()
+    history.pushState(null, null, document.URL);
+    window.addEventListener('popstate', function () {
+    history.pushState(null, null, document.URL);
+    });
+</script>
 </html>
