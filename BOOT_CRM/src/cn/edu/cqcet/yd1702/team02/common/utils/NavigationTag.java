@@ -6,20 +6,20 @@ import javax.servlet.jsp.JspException;
 import javax.servlet.jsp.JspWriter;
 import javax.servlet.jsp.tagext.TagSupport;
 /**
- * æ˜¾ç¤ºæ ¼å¼ï¼šé¦–é¡µ  ä¸Šä¸€é¡µ 1 2 3 4 5 ... ä¸‹ä¸€é¡µ å°¾é¡µ
+ * ÏÔÊ¾¸ñÊ½£ºÊ×Ò³  ÉÏÒ»Ò³ 1 2 3 4 5 ... ÏÂÒ»Ò³ Î²Ò³
  */
 public class NavigationTag extends TagSupport {
 	static final long serialVersionUID = 2372405317744358833L;
 	/**
-	 * request ä¸­ç”¨äºä¿å­˜Page<E> å¯¹è±¡çš„å˜é‡å,é»˜è®¤ä¸ºâ€œpageâ€
+	 * request ÖĞÓÃÓÚ±£´æPage<E> ¶ÔÏóµÄ±äÁ¿Ãû,Ä¬ÈÏÎª¡°page¡±
 	 */
 	private String bean = "page";
 	/**
-	 * åˆ†é¡µè·³è½¬çš„urlåœ°å€,æ­¤å±æ€§å¿…é¡»
+	 * ·ÖÒ³Ìø×ªµÄurlµØÖ·,´ËÊôĞÔ±ØĞë
 	 */
 	private String url = null;
 	/**
-	 * æ˜¾ç¤ºé¡µç æ•°é‡
+	 * ÏÔÊ¾Ò³ÂëÊıÁ¿
 	 */
 	private int number = 5;
 
@@ -33,34 +33,34 @@ public class NavigationTag extends TagSupport {
 			return SKIP_BODY;
 		url = resolveUrl(url, pageContext);
 		try {
-			// è®¡ç®—æ€»é¡µæ•°
+			// ¼ÆËã×ÜÒ³Êı
 			int pageCount = page.getTotal() / page.getSize();
 			if (page.getTotal() % page.getSize() > 0) {
 				pageCount++;
 			}
 			writer.print("<nav><ul class=\"pagination\">");
-			//é¦–é¡µé“¾æ¥è·¯å¾„
+			//Ê×Ò³Á´½ÓÂ·¾¶
 			String homeUrl = append(url, "page", 1);
-			//æœ«é¡µé“¾æ¥è·¯å¾„
+			//Ä©Ò³Á´½ÓÂ·¾¶
 			String backUrl = append(url, "page", pageCount);
-			// æ˜¾ç¤ºâ€œä¸Šä¸€é¡µâ€æŒ‰é’®
+			// ÏÔÊ¾¡°ÉÏÒ»Ò³¡±°´Å¥
 			if (page.getPage() > 1) {
 				String preUrl = append(url, "page", page.getPage() - 1);
 				preUrl = append(preUrl, "rows", page.getSize());
 				writer.print("<li><a href=\"" + homeUrl + "\">" 
-				             + "é¦–é¡µ</a></li>");
+				             + "Ê×Ò³</a></li>");
 				writer.print("<li><a href=\"" + preUrl + "\">" 
-				             + "ä¸Šä¸€é¡µ</a></li>");
+				             + "ÉÏÒ»Ò³</a></li>");
 			} else {
 				writer.print("<li class=\"disabled\"><a href=\"#\">" 
-			                 + "é¦–é¡µ </a></li>");
+			                 + "Ê×Ò³ </a></li>");
 				writer.print("<li class=\"disabled\"><a href=\"#\">" 
-			                 + "ä¸Šä¸€é¡µ </a></li>");
+			                 + "ÉÏÒ»Ò³ </a></li>");
 			}
 			/*
-			 * 	æ˜¾ç¤ºå½“å‰é¡µç çš„å‰2é¡µç å’Œåä¸¤é¡µç 
-			 *  è‹¥1 åˆ™ 1 2 3 4 5, è‹¥2 åˆ™ 1 2 3 4 5, è‹¥3 åˆ™1 2 3 4 5,
-			 *  è‹¥4 åˆ™ 2 3 4 5 6 ,è‹¥10 åˆ™ 8 9 10 11 12
+			 * 	ÏÔÊ¾µ±Ç°Ò³ÂëµÄÇ°2Ò³ÂëºÍºóÁ½Ò³Âë
+			 *  Èô1 Ôò 1 2 3 4 5, Èô2 Ôò 1 2 3 4 5, Èô3 Ôò1 2 3 4 5,
+			 *  Èô4 Ôò 2 3 4 5 6 ,Èô10 Ôò 8 9 10 11 12
              *  int indexPage=(page.getPage()-2>0)?page.getPage()-2:1;
 			 */
 			int indexPage =1;
@@ -82,19 +82,19 @@ public class NavigationTag extends TagSupport {
 				writer.print("<li><a href=\"" + pageUrl + "\">" 
 				+ indexPage + "</a></li>");
 			}
-			// æ˜¾ç¤ºâ€œä¸‹ä¸€é¡µâ€æŒ‰é’®
+			// ÏÔÊ¾¡°ÏÂÒ»Ò³¡±°´Å¥
 			if (page.getPage() < pageCount) {
 				String nextUrl = append(url, "page", page.getPage() + 1);
 				nextUrl = append(nextUrl, "rows", page.getSize());
 				writer.print("<li><a href=\"" + nextUrl + "\">" 
-				              + "ä¸‹ä¸€é¡µ</a></li>");
+				              + "ÏÂÒ»Ò³</a></li>");
 				writer.print("<li><a href=\"" + backUrl + "\">" 
-				              + "å°¾é¡µ</a></li>");
+				              + "Î²Ò³</a></li>");
 			} else {
 				writer.print("<li class=\"disabled\"><a href=\"#\">" 
-			                  + "ä¸‹ä¸€é¡µ</a></li>");
+			                  + "ÏÂÒ»Ò³</a></li>");
 				writer.print("<li class=\"disabled\"><a href=\"#\">" 
-			                  + "å°¾é¡µ</a></li>");
+			                  + "Î²Ò³</a></li>");
 			}
 			writer.print("</nav>");
 		} catch (IOException e) {
@@ -107,7 +107,7 @@ public class NavigationTag extends TagSupport {
 		return append(url, key, String.valueOf(value));
 	}
 	/**
-	 * ä¸ºurl å‚åŠ å‚æ•°å¯¹å„¿
+	 * Îªurl ²Î¼Ó²ÎÊı¶Ô¶ù
 	 */
 	private String append(String url, String key, String value) {
 		if (url == null || url.trim().length() == 0) {
@@ -125,7 +125,7 @@ public class NavigationTag extends TagSupport {
 		return url;
 	}
 	/**
-	 * ä¸ºurl æ·»åŠ ç¿»é¡µè¯·æ±‚å‚æ•°
+	 * Îªurl Ìí¼Ó·­Ò³ÇëÇó²ÎÊı
 	 */
 	private String resolveUrl(String url, 
 			javax.servlet.jsp.PageContext pageContext) throws JspException {
