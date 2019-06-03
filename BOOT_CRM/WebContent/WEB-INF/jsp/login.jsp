@@ -40,11 +40,11 @@ function check(){
         <input type="text" id="usercode" name="usercode" class="form-control" placeholder="请输入用户名" autofocus>
         <label for="password" class="sr-only">请输入密码</label>
         <input type="password" id="password" name="password" class="form-control" placeholder="请输入密码" >
-        <div class="checkbox">
+<!--         <div class="checkbox">
           <label>
-            <input type="checkbox" value="remember-me"> 记住密码
+            <input type="checkbox" name="remember" value="remember"> 记住密码
           </label>
-        </div>
+        </div> -->
 
         <button class="btn btn-login btn-block" type="submit">登录</button>
       </form>

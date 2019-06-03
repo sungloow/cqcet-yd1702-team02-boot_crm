@@ -10,6 +10,7 @@ import org.springframework.web.bind.annotation.RequestMethod;
 
 import cn.edu.cqcet.yd1702.team02.core.po.User;
 import cn.edu.cqcet.yd1702.team02.core.service.UserService;
+import cn.edu.cqcet.yd1702.team02.core.utils.MD5;
 
 /**
  * @title: UserController.java
@@ -31,8 +32,12 @@ public class UserController {
 		@RequestMapping(value = "/login.action", method = RequestMethod.POST)
 		public String login(String usercode,String password, Model model, HttpSession session) {
 			// 通过账号和密码查询用户
-			User user = userService.findUser(usercode, password);
-			if(user != null){		
+//			User user = userService.findUser(usercode, password);
+//			将获取的密码进行MD5加密
+			String passwordMd5 = MD5.getMd5(password);
+			User user = userService.findUser(usercode, passwordMd5);			
+			
+			if(user != null){
 				// 将用户对象添加到Session
 				session.setAttribute("USER_SESSION", user);
 				// 跳转到主页面
