@@ -22,6 +22,7 @@ import cn.edu.cqcet.yd1702.team02.core.service.UserService;
 
 @Controller
 public class UserController {
+	
 	// “¿¿µ◊¢»Î
 		@Autowired
 		private UserService userService;

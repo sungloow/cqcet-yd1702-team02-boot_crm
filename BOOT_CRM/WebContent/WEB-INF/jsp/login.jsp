@@ -42,7 +42,7 @@ function check(){
         <input type="password" id="password" name="password" class="form-control" placeholder="请输入密码" >
         <div class="checkbox">
           <label>
-            <input type="checkbox" value="remember-me"> 记住密码
+            <input type="checkbox" value="remember-me" >记住我7天
           </label>
         </div>
 
