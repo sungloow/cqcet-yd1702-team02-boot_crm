@@ -45,8 +45,8 @@ public class UserController {
 					// 将用户对象添加到Session
 					session.setAttribute("USER_SESSION", user);
 					// 跳转到主页面
-					return "customer";
-//						return "redirect:customer/list.action";
+//					return "customer";
+					return "redirect:customer/list.action";
 				}
 				model.addAttribute("msg", "账号或密码错误，请重新输入！");
 			} catch (Exception e) {
