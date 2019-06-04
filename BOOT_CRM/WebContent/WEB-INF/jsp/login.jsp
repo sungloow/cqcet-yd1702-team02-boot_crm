@@ -12,7 +12,11 @@
 <link href="${pageContext.request.contextPath}/css/bootstrap.min.css" type=text/css rel="stylesheet">	
 
 <link href="${pageContext.request.contextPath}/css/login.css" type=text/css rel=stylesheet>
+
 <script src="${pageContext.request.contextPath}/js/jquery-1.11.3.min.js"></script>
+<script src="${pageContext.request.contextPath}/js/bootstrap.min.js"></script>
+
+
 <meta content="MSHTML 6.00.2600.0" name=GENERATOR>
 <script>
 // 判断是登录账号和密码是否为空
@@ -34,8 +38,10 @@ function check(){
 
       <form class="form-login" action="${pageContext.request.contextPath }/login.action" method="post" onsubmit="return check()" >
         <h2 class="form-login-heading"><span>BOOT</span>客户管理系统</h2>
-		<font color="red"> <!-- 提示信息--> <span id="message" class="message">${msg}</span>
-						</font>
+        
+		<!-- 提示信息--> 
+		<span id="message" class="message">${msg}</span>
+						
         <label for="usercode"  class="sr-only">请输入用户名</label>
         <input type="text" id="usercode" name="usercode" class="form-control" placeholder="请输入用户名" autofocus>
         <label for="password" class="sr-only">请输入密码</label>
@@ -80,4 +86,19 @@ function check(){
     history.pushState(null, null, document.URL);
     });
 </script>
+
+ <!-- js实现的点击"message"区域外隐藏div区域 -->
+<script type="text/javascript">
+window.onload=function(){
+    var myDiv = document.getElementById("message");
+    document.addEventListener("click",function(){
+        myDiv.style.display="none";
+    });
+    myDiv.addEventListener("click",function(event){
+        event=event||window.event;
+        event.stopPropagation();
+    });
+};
+</script>
+
 </html>
