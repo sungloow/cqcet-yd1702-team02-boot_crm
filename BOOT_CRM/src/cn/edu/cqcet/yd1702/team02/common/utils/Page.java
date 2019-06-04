@@ -1,10 +1,10 @@
 package cn.edu.cqcet.yd1702.team02.common.utils;
 import java.util.List;
 public class Page<T> {   
-	private int total;    // æ€»æ¡æ•°
-	private int page;     // å½“å‰é¡µ
-	private int size;     // æ¯é¡µæ•°
-    private List<T> rows; // ç»“æœé›†
+	private int total;    // ×ÜÌõÊı
+	private int page;     // µ±Ç°Ò³
+	private int size;     // Ã¿Ò³Êı
+    private List<T> rows; // ½á¹û¼¯
 	public int getTotal() {
 		return total;
 	}
