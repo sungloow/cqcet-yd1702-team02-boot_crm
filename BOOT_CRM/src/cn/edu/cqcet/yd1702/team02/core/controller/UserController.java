@@ -1,5 +1,7 @@
 package cn.edu.cqcet.yd1702.team02.core.controller;
 
+import java.sql.SQLException;
+
 import javax.servlet.http.HttpSession;
 
 import org.springframework.beans.factory.annotation.Autowired;
@@ -30,21 +32,28 @@ public class UserController {
 		 * 用户登录
 		 */
 		@RequestMapping(value = "/login.action", method = RequestMethod.POST)
-		public String login(String usercode,String password, Model model, HttpSession session) {
+		public String login(String usercode,String password, Model model, HttpSession session) throws SQLException {
 			// 通过账号和密码查询用户
 //			User user = userService.findUser(usercode, password);
 //			将获取的密码进行MD5加密
 			String passwordMd5 = MD5.getMd5(password);
-			User user = userService.findUser(usercode, passwordMd5);			
+						
 			
-			if(user != null){
-				// 将用户对象添加到Session
-				session.setAttribute("USER_SESSION", user);
-				// 跳转到主页面
-				return "customer";
-//				return "redirect:customer/list.action";
+			try {
+				User user = userService.findUser(usercode, passwordMd5);
+				if(user != null){
+					// 将用户对象添加到Session
+					session.setAttribute("USER_SESSION", user);
+					// 跳转到主页面
+					return "customer";
+//						return "redirect:customer/list.action";
+				}
+				model.addAttribute("msg", "账号或密码错误，请重新输入！");
+			} catch (Exception e) {
+				System.out.println("数据库连接异常" + e.getMessage());
+				model.addAttribute("msg", "当前网络环境无法登录！");
 			}
-			model.addAttribute("msg", "账号或密码错误，请重新输入！");
+			
 	         // 返回到登录页面
 			return "login";
 		}
