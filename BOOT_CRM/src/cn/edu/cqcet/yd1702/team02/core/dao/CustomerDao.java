@@ -15,4 +15,19 @@ public interface CustomerDao {
 	public List<Customer> selectCustomerList(Customer customer);
 	//客户数
 	public Integer selectCustomerListCount(Customer customer);
+	
+	/**
+	 *  * @author 康峰
+	 * 2017180208
+	 * @time 2019年6月4日
+	 * 
+	 */
+	//创建客户
+	public int createCustomer (Customer customer);
+	//通过id查询客户
+	public Customer getCustomerById(Integer id);
+	//更新客户
+	public int updateCustomer(Customer customer);
+	//删除客户
+	int deleteCustomer (Integer id);
 }
