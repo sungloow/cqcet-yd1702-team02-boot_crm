@@ -63,4 +63,39 @@ public class CustomerServiceImpl implements CustomerService {
 		result.setTotal(count);
 		return result;
 	}
+	/**
+	 *  * @author 康峰
+	 * 2017180208
+	 * @time 2019年6月4日
+	 * 
+	 */
+	@Override
+	public int  createCustomer (Customer customer){
+	return customerDao.createCustomer(customer);
+	}
+
+
+	/**
+	*通过id查询客户
+	*/
+	@Override
+	public Customer  getCustomerById (Integer id){
+	Customer customer = customerDao.getCustomerById(id);
+	return customer;
+	}
+	/**
+	*更新客户
+	*/
+	@Override
+	public int updateCustomer (Customer customer){
+	return customerDao.updateCustomer(customer);
+	}
+
+	/**
+	*删除客户
+	*/
+	@Override
+	public int deleteCustomer (Integer id){
+	return customerDao.deleteCustomer(id);
+	}
 }
